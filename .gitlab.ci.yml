@@ -7,15 +7,12 @@ variables:
   DB_HOST: mysql
   DB_USERNAME: root
 stages:
+  - test
   - deploy
 unit_test:
   stage: test
   script:
     - composer update
-    - cp .env.example .env
-    - php artisan key:generate
-    - php artisan migrate --seed
-    - vendor/bin/phpunit
 deploy_production:
   stage: deploy
   script:

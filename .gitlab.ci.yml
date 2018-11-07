@@ -1,18 +1,23 @@
 image: registry.gitlab.com/midincihuy/laravel-test-deploy:latest
+
 services:
   - mysql:5.7
+
 variables:
   MYSQL_DATABASE: homestead
   MYSQL_ROOT_PASSWORD: secret
   DB_HOST: mysql
   DB_USERNAME: root
+
 stages:
   - test
   - deploy
+
 unit_test:
   stage: test
   script:
     - composer update
+
 deploy_production:
   stage: deploy
   script:
@@ -21,7 +26,7 @@ deploy_production:
     - ssh-add <(echo "$SPK_GCL")
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-- ~/.composer/vendor/bin/envoy run deploy
+    - ~/.composer/vendor/bin/envoy run deploy
   environment:
     name: production
     url: http://35.240.200.94

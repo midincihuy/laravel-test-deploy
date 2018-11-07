@@ -8,7 +8,7 @@ use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 use Illuminate\Contracts\Events\Dispatcher;
 
 use App\Menu;
-
+use Illuminate\Support\Facades\Schema;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -69,6 +69,7 @@ class AppServiceProvider extends ServiceProvider
           ]
         ]);
       });
+      Schema::defaultStringLength(191);
     }
 
     /**

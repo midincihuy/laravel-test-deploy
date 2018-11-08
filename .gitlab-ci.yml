@@ -16,6 +16,7 @@ unit_test:
   stage: test
   script:
     - echo "Start testing"
+    - composer update
     - cp .env.example .env
     - php artisan key:generate
     - php artisan migrate:fresh --seed

@@ -27,6 +27,9 @@ deploy_production:
     - ssh-add <(echo "$SPK_GCL")
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - echo $SPK_GCL
+    - echo ~/.ssh/config
+    - echo ~/.ssh/id_rsa
     - ~/.composer/vendor/bin/envoy run deploy
   environment:
     name: production

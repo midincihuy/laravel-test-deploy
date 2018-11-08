@@ -10,6 +10,7 @@
     clone_repository
     run_composer
     update_symlinks
+    migrate
 @endstory
 @task('clone_repository')
     echo 'Cloning repository'
@@ -34,4 +35,9 @@ echo 'Linking .env file'
 echo 'Linking current release'
     ln -nfs {{ $new_release_dir }} {{ $app_dir }}/current
     echo 'Done'
+@endtask
+@task('migrate')
+  echo "start migrating"
+  /usr/bin/php {{ $app_dir }}/current/artisan migrate
+  echo "done migrating"
 @endtask

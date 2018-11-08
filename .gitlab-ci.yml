@@ -16,7 +16,7 @@ stages:
 unit_test:
   stage: test
   script:
-    - composer update
+    - echo "oke tested"
 
 deploy_production:
   stage: deploy
@@ -31,5 +31,6 @@ deploy_production:
   environment:
     name: production
     url: http://35.240.200.94
+  when: manual
   only:
     - master

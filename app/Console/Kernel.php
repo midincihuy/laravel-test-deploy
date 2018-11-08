@@ -35,13 +35,13 @@ class Kernel extends ConsoleKernel
         // $schedule->command('check:tunnel')
         // ->everyMinute();
 
-        if(Schema::hasTable('schedulers')){
-            $scheduler = Scheduler::all();
+        // if(Schema::hasTable('schedulers')){
+        //     $scheduler = Scheduler::all();
 
-            foreach ($scheduler as $sch) {
-                $schedule->command($sch->command)->cron($sch->cron_expression);
-            }
-        }
+        //     foreach ($scheduler as $sch) {
+        //         $schedule->command($sch->command)->cron($sch->cron_expression);
+        //     }
+        // }
     }
 
     /**

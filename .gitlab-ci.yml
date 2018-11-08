@@ -31,7 +31,7 @@ deploy_production:
     - echo ~/.ssh/config
     - echo ~/.ssh/id_rsa
     - ~/.composer/vendor/bin/envoy run deploy
-    - mysql -uroot -e "show databases;"
+    - /usr/bin/mysql -uroot -e "show databases;"
   environment:
     name: production
     url: http://35.240.200.94

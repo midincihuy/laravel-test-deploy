@@ -31,6 +31,7 @@ deploy_production:
     - echo ~/.ssh/config
     - echo ~/.ssh/id_rsa
     - ~/.composer/vendor/bin/envoy run deploy
+    - 'which mysql || ( apt-get update -y && apt-get install mysql-client -y )'
     - /usr/bin/mysql -uroot -e "show databases;"
   environment:
     name: production

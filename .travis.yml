@@ -1,0 +1,10 @@
+language: php
+
+php:
+  - 7.1
+
+before_script:
+  - echo "start before_script"
+
+script:
+  - echo "start script"

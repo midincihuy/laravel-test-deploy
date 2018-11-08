@@ -6,7 +6,6 @@ services:
 variables:
   MYSQL_DATABASE: homestead
   MYSQL_ROOT_PASSWORD: secret
-  DB_HOST: mysql
   DB_USERNAME: root
 
 stages:
@@ -16,7 +15,10 @@ stages:
 unit_test:
   stage: test
   script:
-    - echo "oke tested"
+    - echo "Start testing"
+    - cp .env.example .env
+    - php artisan key:generate
+    - php artisan migrate:fresh --seed
 
 deploy_production:
   stage: deploy
